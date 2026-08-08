@@ -19,8 +19,8 @@ export default interface EmployeeProps {
     jobId: string;
     salary: number;
     commissionPct: number | null;
-    managerId?: string | null;
-    departmentId?: string | null;
+    managerId: string | null;
+    departmentId: string | null;
     status: EmployeeStatus;
     avatarUrl?: string | null;
     onViewDetails?: (id: string) => void;
