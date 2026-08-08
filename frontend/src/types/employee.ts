@@ -10,7 +10,7 @@ export type EmployeeStatus = typeof EMPLOYEE_STATUSES[number];
 
 // Define the EmployeeProps interface
 export default interface EmployeeProps {
-    id: string;
+    id?: string;
     firstName: string;
     lastName: string;
     email: string;
