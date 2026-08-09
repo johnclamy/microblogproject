@@ -10,7 +10,6 @@ import {
     User
 } from 'lucide-react'
 import type EmployeeProps from '../types/employee'
-// import { type EmployeeStatus } from '../types/employee'
 import MessageButton from './MessageButton'
 
 
@@ -28,13 +27,6 @@ const Employee: React.FC<EmployeeProps> = ({
     status,
     avatarUrl,
 }) => {
-    // Tailwind v4 mapping using CSS variables or native theme utilities
-    // const statusStyles: Record<EmployeeStatus, string> = {
-    //     Active: 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20 dark:bg-emerald-500/20 dark:text-emerald-400',
-    //     Inactive: 'bg-zinc-500/10 text-zinc-600 border-zinc-500/20 dark:bg-zinc-500/20 dark:text-zinc-400',
-    //     'On Leave': 'bg-amber-500/10 text-amber-600 border-amber-500/20 dark:bg-amber-500/20 dark:text-amber-400'
-    // }
-
     // Safe formatting for currencies
     const formattedSalary = new Intl.NumberFormat('en-GB', {
         style: 'currency',
