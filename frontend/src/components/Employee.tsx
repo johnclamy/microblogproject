@@ -11,6 +11,7 @@ import {
 } from 'lucide-react'
 import type EmployeeProps from '../types/employee'
 // import { type EmployeeStatus } from '../types/employee'
+import MessageButton from './MessageButton'
 
 
 const Employee: React.FC<EmployeeProps> = ({
@@ -115,20 +116,28 @@ const Employee: React.FC<EmployeeProps> = ({
                 </div>       
             </section>
 
-            <footer className="mt-1 flex flex-col gap-2 border-t border-zinc-100 pt-4 text-xs text-zinc-500 dark:border-zinc-900 dark:text-zinc-400">
-                <a href={`mailto:${email}`} className="flex items-center gap-2.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group">
-                    <Mail className="h-3.5 w-3.5 text-zinc-400 group-hover:text-blue-500 transition-colors" />
-                    <span className="truncate">{email}</span>    
-                </a>
-                <a href={`tel:${phoneNumber}`} className="flex items-center gap-2.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group">
-                    <Phone className="h-3.5 w-3.5 text-zinc-400 group-hover:text-blue-500 transition-colors" />
-                    <span>{phoneNumber}</span>
-                </a>
-                <div className="flex items-center gap-2.5 pt-1 text-[11px] text-zinc-400 dark:text-zinc-500">
-                    <Calendar className="h-3.5 w-3.5" />
-                    <span>Joined {formattedDate}</span>
-                </div>     
-            </footer>
+            <footer>
+                {/* Footer top */}
+                <div className="mt-1 flex flex-col gap-2 border-t border-zinc-100 pt-4 text-xs text-zinc-500 dark:border-zinc-900 dark:text-zinc-400">
+                    <a href={`mailto:${email}`} className="flex items-center gap-2.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group">
+                        <Mail className="h-3.5 w-3.5 text-zinc-400 group-hover:text-blue-500 transition-colors" />
+                        <span className="truncate">{email}</span>    
+                    </a>
+                    <a href={`tel:${phoneNumber}`} className="flex items-center gap-2.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group">
+                        <Phone className="h-3.5 w-3.5 text-zinc-400 group-hover:text-blue-500 transition-colors" />
+                        <span>{phoneNumber}</span>
+                    </a>
+                    <div className="flex items-center gap-2.5 pt-1 text-[11px] text-zinc-400 dark:text-zinc-500">
+                        <Calendar className="h-3.5 w-3.5" />
+                        <span>Joined {formattedDate}</span>
+                    </div>     
+                </div>
+
+                {/* Footer bottom */}
+                <div className="mt-3">
+                    <MessageButton onClick={() => console.log(`Messaging ${firstName}`)} />
+                </div>
+            </footer>            
         </section>
     )
 }
