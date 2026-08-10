@@ -7,10 +7,11 @@ import {
     PoundSterling,
     Percent,
     ShieldCheck,
+    MessageSquare,
     User
 } from 'lucide-react'
 import type EmployeeProps from '../types/employee'
-import MessageButton from './MessageButton'
+import Button from './Button'
 
 
 const Employee: React.FC<EmployeeProps> = ({
@@ -126,8 +127,14 @@ const Employee: React.FC<EmployeeProps> = ({
                 </div>
 
                 {/* Footer bottom */}
-                <div className="mt-3">
-                    <MessageButton onClick={() => console.log(`Messaging ${firstName}`)} />
+                <div className="py-4 space-y-4 max-w-sm">
+                    <Button
+                        variant='outline'
+                        leftIcon={<MessageSquare className="h-3.5 w-3.5" />} 
+                        onClick={() => console.log(`Messaging ${firstName}`)}
+                    >
+                        Update
+                    </Button>
                 </div>
             </footer>            
         </section>
