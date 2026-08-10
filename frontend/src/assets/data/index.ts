@@ -1,9 +1,9 @@
-import type EmployeeProps from "../../types/employee";
+import type EmployeeProps from '../../types/employee'
 
 
 const MOCK_EMPLOYEES: EmployeeProps[] = [
   {
-    id: 'EMP-001',
+    id: crypto.randomUUID(),
     firstName: 'Sarah',
     lastName: 'Connor',
     email: 's.connor@company.com',
@@ -18,7 +18,7 @@ const MOCK_EMPLOYEES: EmployeeProps[] = [
     avatarUrl: 'https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
   },
   {
-    id: 'EMP-002',
+    id: crypto.randomUUID(),
     firstName: 'Marcus',
     lastName: 'Vance',
     email: 'm.vance@company.com',
@@ -33,7 +33,7 @@ const MOCK_EMPLOYEES: EmployeeProps[] = [
     avatarUrl: 'https://images.pexels.com/photos/694438/pexels-photo-694438.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
   },
   {
-    id: 'EMP-003',
+    id: crypto.randomUUID(),
     firstName: 'Elena',
     lastName: 'Rostova',
     email: 'e.rostova@company.com',
