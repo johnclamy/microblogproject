@@ -4,6 +4,7 @@
  * 
  ****************************/
 
+
 export const EMPLOYEE_STATUSES = ['Active', 'Inactive', 'On Leave'] as const
 export type EmployeeStatus = typeof EMPLOYEE_STATUSES[number]
 
@@ -24,6 +25,12 @@ export default interface EmployeeProps {
     status: EmployeeStatus
     avatarUrl?: string | null
     onViewDetails?: (id: string) => void
+}
+
+
+// Employee grid container interface
+export interface EmployeeGridProps {
+    employees: EmployeeProps[]
 }
 
 
