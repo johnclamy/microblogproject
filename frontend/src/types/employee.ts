@@ -40,3 +40,11 @@ export interface StatusSelectProps {
     onChange: (newStatus: EmployeeStatus) => void
     disabled?: boolean
 }
+
+
+// Define the prop fields required in the Employee form
+export interface AddEmployeeModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onSave: (newEmployee: EmployeeProps) => void;
+}
