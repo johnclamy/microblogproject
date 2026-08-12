@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink as RouterNavLink } from 'react-router'
 import type { NavLinkProps } from '../types/navigation'
 
 
@@ -8,11 +9,11 @@ const MobileLink: React.FC<NavLinkProps> = ({
     onNavigate,
 }) => {
     const Icon = item.icon
-    const hRef = item.href
+    const hRef = item.to
 
     return (
-        <a
-            href={hRef}
+        <RouterNavLink
+            to={hRef}
             aria-current={active ? "page" : undefined}
             onClick={() => onNavigate(hRef)}
             className={`flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors ${
@@ -23,7 +24,7 @@ const MobileLink: React.FC<NavLinkProps> = ({
         >
             <Icon className="h-4 w-4" aria-hidden />
             {item.label}
-        </a>
+        </RouterNavLink>
     )
 }
 
