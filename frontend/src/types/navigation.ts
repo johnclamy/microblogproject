@@ -1,3 +1,5 @@
+// /src/types/navigation.ts
+import { type LinkProps } from 'react-router'
 import { type LucideIcon } from 'lucide-react'
 
 
@@ -9,13 +11,14 @@ export type NavbarProps = {
 
 export default interface NavItemProps {
   label: string
-  href: string
+  // This type captures string paths as well as complex history location objects
+  to: LinkProps['to']
   icon: LucideIcon
 }
 
 
 export interface NavLinkProps {
     item: NavItemProps
-    active: boolean
-    onNavigate: (href: string) => void
+    active?: boolean   // defaults to react router active classes
+    onNavigate: (to: LinkProps['to']) => void
 }
