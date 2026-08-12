@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import type { To } from 'react-router'
 import type NavItemProps from '../types/navigation'
 import type { NavbarProps } from '../types/navigation'
 import { Users, Briefcase, Folder, Calendar } from 'lucide-react'
@@ -8,10 +9,10 @@ import DesktopLink from './DesktopLink'
 
 
 const NAV_ITEMS: NavItemProps[] = [
-    { label: "Employees", href: "/employees", icon: Users },
-    { label: "Customers", href: "/customers", icon: Briefcase },
-    { label: "Projects", href: "/projects", icon: Folder },
-    { label: "Calendar", href: "/calendar", icon: Calendar },
+    { label: "Employees", to: "/employee", icon: Users },
+    { label: "Customers", to: "/customer", icon: Briefcase },
+    { label: "Projects", to: "/project", icon: Folder },
+    { label: "Calendar", to: "/calendar", icon: Calendar },
 ]
 
 
@@ -38,8 +39,9 @@ const Navbar = ({ activePath }: NavbarProps) => {
         return () => window.removeEventListener('keydown', onKey)
     }, [menuOpen])
 
-    const navigate = (href: string) => {
-        setActive(href)
+    const navigate = (to: To) => {
+        // Convert to string if needed, or handle both cases
+        setActive(typeof to === 'string' ? to : to.pathname || '/')
         setMenuOpen(false)
     }
 
@@ -66,10 +68,9 @@ const Navbar = ({ activePath }: NavbarProps) => {
                     <nav aria-label="Primary" className="ml-6 hidden items-center gap-0.5 md:flex">
                         {NAV_ITEMS.map(item => (
                             <DesktopLink
-                                key={item.href}
                                 item={item}
-                                active={active === item.href}
-                                onNavigate={navigate}
+                                active={active === item.to}
+                                onNavigate={() => navigate(item.to)}
                             />
                         ))}
                     </nav>
@@ -129,10 +130,9 @@ const Navbar = ({ activePath }: NavbarProps) => {
                         <nav aria-label="Mobile" className="space-y-0.5 px-3 pb-2 pt-2">
                             {NAV_ITEMS.map((item) => (
                                 <MobileLink
-                                    key={item.href}
                                     item={item}
-                                    active={active === item.href}
-                                    onNavigate={navigate}
+                                    active={active === item.to}
+                                    onNavigate={() => navigate(item.to)}
                                 />
                             ))}
                         </nav>
