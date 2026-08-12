@@ -54,7 +54,7 @@ const Navbar = ({ activePath }: NavbarProps) => {
             {/* a11y: keyboard skip link */}
             <a
                 href='/employee'
-                className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-[60] focus:rounded-md focus:bg-neutral-900 focus:px-3 focus:py-1.5 focus:text-sm focus:text-white"
+                className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-60 focus:rounded-md focus:bg-neutral-900 focus:px-3 focus:py-1.5 focus:text-sm focus:text-white"
             >
                 Skip to content
             </a>
@@ -103,12 +103,12 @@ const Navbar = ({ activePath }: NavbarProps) => {
                         <span className="relative block h-3 w-4" aria-hidden>
                             <span
                                 className={`absolute left-0 h-[1.5px] w-full rounded-full bg-current transition-all duration-200 ${
-                                    menuOpen ? "top-[5px] rotate-45" : "top-0"
+                                    menuOpen ? "top-1.25 rotate-45" : "top-0"
                                 }`}
                             />
                             <span
                                 className={`absolute left-0 h-[1.5px] w-full rounded-full bg-current transition-all duration-200 ${
-                                    menuOpen ? "bottom-[5px] -rotate-45" : "bottom-0"
+                                    menuOpen ? "bottom-1.25 -rotate-45" : "bottom-0"
                                 }`}
                             />
                         </span>
