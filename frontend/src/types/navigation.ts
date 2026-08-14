@@ -10,6 +10,7 @@ export type NavbarProps = {
 
 
 export default interface NavItemProps {
+  id?: string
   label: string
   // This type captures string paths as well as complex history location objects
   to: LinkProps['to']
