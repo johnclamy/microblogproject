@@ -2,17 +2,17 @@ import { useEffect, useState } from 'react'
 import type { To } from 'react-router'
 import type NavItemProps from '../types/navigation'
 import type { NavbarProps } from '../types/navigation'
-import { Users, Briefcase, Folder, Calendar } from 'lucide-react'
+import { Users, Briefcase, BookA, Calendar } from 'lucide-react'
 import Logo from './Logo'
 import MobileLink from './MobileLink'
 import DesktopLink from './DesktopLink'
 
 
 const NAV_ITEMS: NavItemProps[] = [
-    { label: "Employees", to: "/employee", icon: Users },
-    { label: "Customers", to: "/customer", icon: Briefcase },
-    { label: "Projects", to: "/project", icon: Folder },
-    { label: "Calendar", to: "/calendar", icon: Calendar },
+    { id: "nav-employees", label: "Employees", to: "/employee", icon: Users },
+    { id: "nav-customers", label: "Customers", to: "/customer", icon: Briefcase },
+    { id: "nav-dictionary", label: "Dictionary", to: "/dictionary", icon: BookA },
+    { id: "nav-calendar", label: "Calendar", to: "/calendar", icon: Calendar },
 ]
 
 
@@ -68,6 +68,7 @@ const Navbar = ({ activePath }: NavbarProps) => {
                     <nav aria-label="Primary" className="ml-6 hidden items-center gap-0.5 md:flex">
                         {NAV_ITEMS.map(item => (
                             <DesktopLink
+                                key={item.id}
                                 item={item}
                                 active={active === item.to}
                                 onNavigate={() => navigate(item.to)}
@@ -130,6 +131,7 @@ const Navbar = ({ activePath }: NavbarProps) => {
                         <nav aria-label="Mobile" className="space-y-0.5 px-3 pb-2 pt-2">
                             {NAV_ITEMS.map((item) => (
                                 <MobileLink
+                                    key={item.id}
                                     item={item}
                                     active={active === item.to}
                                     onNavigate={() => navigate(item.to)}
