@@ -12,11 +12,11 @@ const App: React.FC = () => (
         <Routes>
             <Route path="/" element={<Layout />}>
                 <Route index element={<Default />} />
-            </Route>
-            <Route path="employee" element={<Employee />} />
-            <Route path="customer" element={<Customer />} />
-            <Route path="dictionary" element={<Dictionary />} />
-            <Route path="calendar" element={<Calendar />} />
+                <Route path="employee" element={<Employee />} />
+                <Route path="customer" element={<Customer />} />
+                <Route path="dictionary" element={<Dictionary />} />
+                <Route path="calendar" element={<Calendar />} />
+            </Route>   
         </Routes>
     </BrowserRouter> 
 )
