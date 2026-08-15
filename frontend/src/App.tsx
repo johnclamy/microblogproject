@@ -5,6 +5,7 @@ import Employee from './pages/Employee'
 import Customer from './pages/Customer'
 import Dictionary from './pages/Dictionary'
 import Calendar from './pages/Calendar'
+import Definition from './pages/Definition'
 
 
 const App: React.FC = () => (
@@ -16,6 +17,7 @@ const App: React.FC = () => (
                 <Route path="customer" element={<Customer />} />
                 <Route path="dictionary" element={<Dictionary />} />
                 <Route path="calendar" element={<Calendar />} />
+                <Route path="definition" element={<Definition />} />
             </Route>   
         </Routes>
     </BrowserRouter> 
