@@ -1,7 +1,7 @@
 import type DefinitionData from "../types/definition"
 
 
-const API = `https://corsproxy.io/?https://api.dictionaryapi.dev/api/v2/entries/en/`
+const API = `https://api.dictionaryapi.dev/api/v2/entries/en/`
 
 
 const getData = async (
