@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router'
 import Navbar from './Navbar'
+import Footer from './Footer'
 
 
 const Layout: React.FC = () => (
@@ -10,6 +11,7 @@ const Layout: React.FC = () => (
           <Outlet />  {/* routed pages render here */}
         </div>
       </div>
+      <Footer />
     </div>
 )
 
