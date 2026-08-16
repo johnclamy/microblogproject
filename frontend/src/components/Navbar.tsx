@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import type { To } from 'react-router'
 import type NavItemProps from '../types/navigation'
 import type { NavbarProps } from '../types/navigation'
-import { Users, Briefcase, BookA, Calendar } from 'lucide-react'
+import { Users, Briefcase, BookA, Ad } from 'lucide-react'
 import Logo from './Logo'
 import MobileLink from './MobileLink'
 import DesktopLink from './DesktopLink'
@@ -12,7 +12,7 @@ const NAV_ITEMS: NavItemProps[] = [
     { id: "nav-employees", label: "Employees", to: "/employee", icon: Users },
     { id: "nav-customers", label: "Customers", to: "/customer", icon: Briefcase },
     { id: "nav-dictionary", label: "Dictionary", to: "/dictionary", icon: BookA },
-    { id: "nav-calendar", label: "Calendar", to: "/calendar", icon: Calendar },
+    { id: "nav-definition", label: "Definition", to: "/definition", icon: Ad },
 ]
 
 
