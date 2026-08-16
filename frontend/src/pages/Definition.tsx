@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router'
 import { BookA } from 'lucide-react'
 import type DefinitionData from '../types/definition'
 import getData from '../api'
@@ -8,22 +9,27 @@ const SUGGESTIONS = ['hello', 'serendipity', 'ephemeral']
 
 
 const Definition = () => {
-    const [word, setWord] = useState<string>(SUGGESTIONS[0])
+    const { word } = useParams<{ word?: string }>()
+    const navigate = useNavigate()
     const [loading, setLoading] = useState<boolean>(true)
     const [error, setError] = useState<string | null>(null)
-    const [data, setData] = useState<DefinitionData | null>(null)    
+    const [data, setData] = useState<DefinitionData | null>(null) 
 
     useEffect(() => {
-        if (word.trim()) {
+        if (word) {
             getData(word, setData, setLoading, setError)
+        } else {
+            setLoading(false)
+            setError('No word provided in URL')
         }
     }, [word])
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault()
         const input = (e.target as HTMLFormElement).querySelector('input')
-        if (input?.value.trim()) {
-            setWord(input.value.trim())
+        const newWord = input?.value.trim()
+        if (newWord) {
+            navigate(`/definition/${encodeURIComponent(newWord)}`)
         }
     }
 
@@ -45,10 +51,11 @@ const Definition = () => {
 
                 {/* Search form */}
                 <form onSubmit={handleSearch} className="flex flex-col gap-2 sm:flex-row">
-                    <input 
+                    <input
+                        key={word}
                         type="text" 
                         placeholder="Enter a word..." 
-                        defaultValue={word}
+                        defaultValue={word || ''}
                         className="h-11 flex-1 rounded-xl border border-zinc-200 bg-white px-4 text-sm shadow-sm outline-none transition placeholder:text-zinc-400 focus:border-zinc-300 focus:ring-4 focus:ring-zinc-900/5"
                     />
                     <button
@@ -65,7 +72,7 @@ const Definition = () => {
                         <button
                             key={s}
                             type="button"
-                            onClick={() => setWord(s)}
+                            onClick={() => navigate(`/definition/${s}`)}
                             className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs text-zinc-500 transition hover:border-zinc-300 hover:text-zinc-900"
                         >
                             {s}
