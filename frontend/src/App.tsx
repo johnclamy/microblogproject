@@ -5,6 +5,7 @@ import Employee from './pages/Employee'
 import Customer from './pages/Customer'
 import Dictionary from './pages/Dictionary'
 import Definition from './pages/Definition'
+import NotFound from './pages/NotFound'
 
 
 const App: React.FC = () => (
@@ -16,7 +17,8 @@ const App: React.FC = () => (
                 <Route path="customer" element={<Customer />} />
                 <Route path="dictionary" element={<Dictionary />} />
                 <Route path="definition" element={<Definition />} />
-                <Route path="definition/:word" element={<Definition />} />
+                <Route path="*" element={<NotFound />} />
+                <Route path="definition/:word" element={<Definition />} />                
             </Route>   
         </Routes>
     </BrowserRouter> 
