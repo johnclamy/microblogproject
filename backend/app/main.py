@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.v1.api import api_router
-# from app.core.config import settings (Import core settings if readily configured)
+# from app.core.config import settings (Import core settings when readily configured)
 
 
 app = FastAPI(
@@ -14,6 +14,7 @@ app = FastAPI(
     # redoc_url=settings.REDOC_URL,
 )
 
+
 # --- Middleware ---
 # Set up CORS (Cross-Origin Resource Sharing) to allow frontend apps to talk to your API
 app.add_middleware(
@@ -23,6 +24,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # --- Router Inclusion ---
 # Include the main API router. 
@@ -34,11 +36,6 @@ app.include_router(api_router, prefix="/api/v1")
 @app.get('/', tags=["Health Check"])
 def read_root():
     return { 'message': 'Root of the app here' }
-
-
-@app.get('/')
-def root():
-    return 'Root of the app here'
 
 
 if __name__ == "__main__":
