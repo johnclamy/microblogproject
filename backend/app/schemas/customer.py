@@ -1,5 +1,5 @@
 # app/schemas/customer.py
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
 
 # Base schema (shared attributes)
@@ -17,8 +17,6 @@ class CustomerCreate(CustomerBase):
 
 # Schema for reading a customer (Output)
 class CustomerResponse(CustomerBase):
-    id: int  # Example: the database ID is usually only returned, not sent by the client
+    model_config = ConfigDict(from_attributes=True)
 
-    # Allows Pydantic to read data from SQLAlchemy ORM models
-    class Config:
-        from_attributes = True 
+    id: int
