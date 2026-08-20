@@ -1,13 +1,13 @@
 # app/schemas/customer.py
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, Field
 
 
 # Base schema (shared attributes)
 class CustomerBase(BaseModel):
-    username: str
-    name: str
+    username: str = Field(min_length=5, max_length=15)
+    name: str = Field(min_length=1, max_length=100)
     email: EmailStr  # validates email format!
-    industry: str
+    industry: str = Field(min_length=3, max_length=50)
 
 
 # Schema for creating a customer (Input)
