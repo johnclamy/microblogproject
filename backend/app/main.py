@@ -1,8 +1,14 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.db.database import engine, Base
+from app.api.v1.endpoints import customers # Adjust path to your router
+from app.models import customer # This import registers the Customer model with Base
 from app.api.v1.api import api_router
-# from app.core.config import settings (Import core settings when readily configured)
+
+
+# Create all tables in the database (does nothing if they already exist)
+Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI(
