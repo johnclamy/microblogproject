@@ -8,11 +8,11 @@ def get_all(db: Session):
     return db.query(Customer).all()
 
 
-def get_by_username(db: Session, username: str):
+def get_by_username(username: str, db: Session):
     return db.query(Customer).filter(Customer.username == username).first()
 
 
-def create(db: Session, customer_in: CustomerCreate):
+def create(customer_in: CustomerCreate, db: Session):
     # Convert the Pydantic schema to a dict, then unpack it into the SQLAlchemy model
     db_customer = Customer(**customer_in.model_dump())
     db.add(db_customer)
