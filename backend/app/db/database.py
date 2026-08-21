@@ -21,5 +21,8 @@ class Base(DeclarativeBase):
 
 
 def get_db():
-    with SessionLocal() as db:
+    db = SessionLocal()
+    try:
         yield db
+    finally:
+        db.close()
