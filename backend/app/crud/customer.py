@@ -13,9 +13,9 @@ def get_by_username(username: str, db: Session):
 
 
 def create(customer_in: CustomerCreate, db: Session):
-    # Convert the Pydantic schema to a dict, then unpack it into the SQLAlchemy model
     db_customer = Customer(**customer_in.model_dump())
     db.add(db_customer)
     db.commit()
     db.refresh(db_customer)  # Populates the 'id' field from the database
+
     return db_customer
